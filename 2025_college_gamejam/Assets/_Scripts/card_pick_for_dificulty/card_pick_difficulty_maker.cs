@@ -26,10 +26,13 @@ public class card_pick_difficulty_maker : MonoBehaviour
         {
             if (card_picker_function)
             {
-                if (Input.GetKeyDown(KeyCode.Q))
+                Instantiate(card_draw_prefab);
+                cardselecting = true;
+
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Instantiate(card_draw_prefab);
-                    cardselecting = true;
+                    
+                    Debug.Log("maa ki chut unity waalo ki bhan ke lund saale kuttaay ka jhat ke baal");
                 }
                 
             }
