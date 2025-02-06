@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class card_pick_difficulty_maker : MonoBehaviour
 {
+    public bool card_picker_function = true;
+
     public card_random_pick crp;
     public bool cardselecting;
 
@@ -22,8 +24,16 @@ public class card_pick_difficulty_maker : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Instantiate(card_draw_prefab);
-            cardselecting = true;
+            if (card_picker_function)
+            {
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    Instantiate(card_draw_prefab);
+                    cardselecting = true;
+                }
+                
+            }
+           
         }
     }
 
@@ -54,14 +64,14 @@ public class card_pick_difficulty_maker : MonoBehaviour
 
     void goodlevel_additatyive_loader()
     {
-        SceneManager.LoadScene(good_level_number, LoadSceneMode.Additive);
+        //SceneManager.LoadScene(good_level_number, LoadSceneMode.Additive);
 
         crp.good_card_selected = false;
 
     }
     void badlevel_sceneloadieradditive()
     {
-        SceneManager.LoadScene(bad_level_number, LoadSceneMode.Additive);
+       // SceneManager.LoadScene(bad_level_number, LoadSceneMode.Additive);
         crp.bad_card_selected = false;
     }
 }
