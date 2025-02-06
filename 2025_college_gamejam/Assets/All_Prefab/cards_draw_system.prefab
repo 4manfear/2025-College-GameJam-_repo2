@@ -240,12 +240,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6437d5d8a97ce094cbdbff3d21c980e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maincanves: {fileID: 4569087222520944303}
   thisbutton: {fileID: 2524621835964565901}
   card1: {fileID: 5177211963660598705}
   card2: {fileID: 5597086046993296766}
-  good_card_img: {fileID: 21300000, guid: 0261effb70f4a924c8c854b98ad923c0, type: 3}
-  bad_card_img: {fileID: 21300000, guid: 210ca4a578cb3c84083d1615d2e3f1a6, type: 3}
+  good_card_img: {fileID: 21300000, guid: 8921ca2294a5e274eae2d67bfa43066e, type: 3}
+  good_card_selected: 0
+  bad_card_img: {fileID: 21300000, guid: d55899fc6375db84c9cdb2b4bdb6c904, type: 3}
+  bad_card_selected: 0
   death_card_img: {fileID: 21300000, guid: e6927bbbd2753f04080875ee38959e75, type: 3}
+  death_card_selected: 0
   anim: {fileID: 6772490462881809385}
 --- !u!114 &2865576925212543453
 MonoBehaviour:
@@ -267,8 +271,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 75df0bada7cd5e94a96e419af6a07c28, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -345,8 +349,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 75df0bada7cd5e94a96e419af6a07c28, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -445,12 +449,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6437d5d8a97ce094cbdbff3d21c980e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maincanves: {fileID: 4569087222520944303}
   thisbutton: {fileID: 17596771083763681}
   card1: {fileID: 5101584707049460168}
   card2: {fileID: 5597086046993296766}
   good_card_img: {fileID: 21300000, guid: 0261effb70f4a924c8c854b98ad923c0, type: 3}
+  good_card_selected: 0
   bad_card_img: {fileID: 21300000, guid: 210ca4a578cb3c84083d1615d2e3f1a6, type: 3}
+  bad_card_selected: 0
   death_card_img: {fileID: 21300000, guid: e6927bbbd2753f04080875ee38959e75, type: 3}
+  death_card_selected: 0
   anim: {fileID: 3355721433087123952}
 --- !u!1 &5597086046993296766
 GameObject:
@@ -520,8 +528,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 75df0bada7cd5e94a96e419af6a07c28, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -620,12 +628,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6437d5d8a97ce094cbdbff3d21c980e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maincanves: {fileID: 4569087222520944303}
   thisbutton: {fileID: 6606956514983101101}
   card1: {fileID: 5101584707049460168}
   card2: {fileID: 5177211963660598705}
   good_card_img: {fileID: 21300000, guid: 0261effb70f4a924c8c854b98ad923c0, type: 3}
+  good_card_selected: 0
   bad_card_img: {fileID: 21300000, guid: 210ca4a578cb3c84083d1615d2e3f1a6, type: 3}
+  bad_card_selected: 0
   death_card_img: {fileID: 21300000, guid: e6927bbbd2753f04080875ee38959e75, type: 3}
+  death_card_selected: 0
   anim: {fileID: 6212923683510500882}
 --- !u!1 &5808723155099753972
 GameObject:

@@ -8,5 +8,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/main_menu.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/main_Scene.unity
+    guid: d38febff10756f647ba0bc3f291f2ad9
+  - enabled: 1
+    path: Assets/Scenes/rioom1/room1_easy.unity
+    guid: 0095d89471df06749b1b73049d6f84f6
+  - enabled: 1
+    path: Assets/Scenes/rioom1/room1_hard.unity
+    guid: da8254ee5abb39f4d973ea3c6876774f
+  - enabled: 1
+    path: Assets/Scenes/room2/room2_easy.unity
+    guid: 4400368eacc3110478a8fe0ba4ec71c5
+  - enabled: 1
+    path: Assets/Scenes/room2/room2_hard.unity
+    guid: 86cee8b6caec14b4f8755011fb397b6c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
