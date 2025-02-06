@@ -28,13 +28,6 @@ public class card_pick_difficulty_maker : MonoBehaviour
             {
                 Instantiate(card_draw_prefab);
                 cardselecting = true;
-
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    
-                    Debug.Log("maa ki chut unity waalo ki bhan ke lund saale kuttaay ka jhat ke baal");
-                }
-                
             }
            
         }
@@ -51,18 +44,27 @@ public class card_pick_difficulty_maker : MonoBehaviour
                 good_level = true;
                 goodlevel_additatyive_loader();
                 cardselecting= false;
+                card_picker_function = false;
             }
             if (crp.bad_card_selected == true)
             {
                 bad_level = true;
                 badlevel_sceneloadieradditive();
                 cardselecting = false;
+                card_picker_function = false;
             }
         }
 
        
 
 
+    }
+
+
+    public void reseter()
+    {
+        good_level = false;
+        bad_level = false;
     }
 
     void goodlevel_additatyive_loader()

@@ -13,12 +13,26 @@ public class door_card_picker_function : MonoBehaviour
             cpdm.card_picker_function = false;
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            cpdm.card_picker_function = false;
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             cpdm.card_picker_function = true;
         }
+    }
+
+    IEnumerator again_reseter()
+    {
+        yield return new WaitForSeconds(3);
     }
 
 }
