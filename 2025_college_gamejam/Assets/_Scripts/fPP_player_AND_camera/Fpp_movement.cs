@@ -5,13 +5,13 @@ using UnityEngine;
 public class Fpp_movement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float moveSpeed = 5f;           // Player movement speed
-    //public float jumpForce = 7f;           // Jump strength
-    public float gravityMultiplier = 2f;   // Custom gravity
+    public float moveSpeed ;            // Player movement speed
+    public float gravityMultiplier ;    // Custom gravity
+    public float maxSlopeAngle ;       // Maximum walkable slope angle
 
     [Header("Camera Settings")]
-    public Transform cameraHolder;         // Assign the empty GameObject holding the camera
-    public float mouseSensitivity = 2f;    // Sensitivity of mouse look
+    public Transform cameraHolder;          // Assign the empty GameObject holding the camera
+    public float mouseSensitivity ;     // Sensitivity of mouse look
 
     private Rigidbody rb;
     private float horizontalInput;
@@ -25,8 +25,8 @@ public class Fpp_movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // Prevent physics rotation
-        Cursor.lockState = CursorLockMode.Locked; // Hide cursor for FPS control
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked; // Hide cursor for FPS control
+        //Cursor.visible = false;
     }
 
     void Update()
@@ -46,25 +46,21 @@ public class Fpp_movement : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-
-        //if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        //{
-        //    Jump();
-        //}
     }
 
     void MovePlayer()
     {
-        // Move in the direction the camera is facing
+        // Get movement direction based on camera rotation
         Vector3 moveDirection = cameraHolder.forward * verticalInput + cameraHolder.right * horizontalInput;
         moveDirection.y = 0; // Prevent unwanted vertical movement
 
-        rb.velocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y, moveDirection.z * moveSpeed);
-    }
+        if (OnSlope(out RaycastHit slopeHit))
+        {
+            moveDirection = Vector3.ProjectOnPlane(moveDirection, slopeHit.normal);
+        }
 
-    void Jump()
-    {
-        //rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+        Vector3 targetVelocity = moveDirection.normalized * moveSpeed;
+        rb.velocity = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
     }
 
     void CheckGround()
@@ -76,7 +72,7 @@ public class Fpp_movement : MonoBehaviour
     {
         if (!isGrounded)
         {
-            rb.velocity += Vector3.down * gravityMultiplier * Time.fixedDeltaTime;
+            rb.AddForce(Vector3.down * gravityMultiplier, ForceMode.Acceleration);
         }
     }
 
@@ -93,5 +89,15 @@ public class Fpp_movement : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Prevent flipping
 
         cameraHolder.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+    }
+
+    bool OnSlope(out RaycastHit slopeHit)
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, 1.5f, groundMask))
+        {
+            float slopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return slopeAngle > 0 && slopeAngle <= maxSlopeAngle;
+        }
+        return false;
     }
 }
